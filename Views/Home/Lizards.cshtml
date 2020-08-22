@@ -1,0 +1,56 @@
+@model List<Lizard>
+    
+<h1>Here is our Crew:</h1>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Lizard Type</th>
+            <th>Pirate Role</th>
+            <th># of Treasures</th>
+            <th>Actions</th>
+            <th># of Pets</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Lizard l in Model)
+        {
+            <tr>
+                <td>@l.Name</td>
+                <td>@l.LizardType</td>
+                <td>@l.PirateRole</td>
+                <td>@l.TreasureChests</td>
+                <td>@l.MyPets.Count</td>
+                <td>
+                    <a href="/edit/@l.LizardId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Destroy" asp-controller="Home" asp-route-lizardId="@l.LizardId" class="btn btn-danger">Walk the Plank!!!</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/" class="btn btn-success">Home</a>
+
+<a href="/new/pet" class="btn btn-info">Add A Pet</a>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Pet Name</th>
+            <th>Pet Type</th>
+            <th>Pet Corlor</th>
+            <th>Belongs To</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in ViewBag.Pets)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.PetType</td>
+                <td>@p.Color</td>
+                <td>@p.Owner.Name</td>
+            </tr>
+        }
+    </tbody>
+</table>

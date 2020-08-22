@@ -1,0 +1,31 @@
+@model Lizard
+
+<form CLASS="col-5 mx-auto" action="/update" method="post">
+<h1>Edit Lizard:</h1>
+<input type="hidden" asp-for="LizardId" value="@Model.LizardId">
+
+<div class="form-group">
+    <label asp-for="Name">Name:</label>
+    <input asp-for="Name" class="form-control">
+    <span class="text-danger" asp-validation-for="Name"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="LizardType">Lizard Type:</label>
+    <input asp-for="LizardType" class="form-control">
+    <span class="text-danger" asp-validation-for="LizardType"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="PirateRole">Pirate Role:</label>
+    <input asp-for="PirateRole" class="form-control">
+    <span class="text-danger" asp-validation-for="PirateRole"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="TreasureChests"># of Treasures:</label>
+    <input asp-for="TreasureChests" class="form-control">
+    <span class="text-danger" asp-validation-for="TreasureChests"></span>
+</div>
+<input type="submit" value="ARRRGH" class="btn btn-primary">
+</form>

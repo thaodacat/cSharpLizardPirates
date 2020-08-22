@@ -1,0 +1,32 @@
+@model Pet
+
+<form action="/create/pet" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name">Pet Name:</label>
+        <input asp-for="Name" class="form-control">
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PetType">Pet Type:</label>
+        <input asp-for="PetType" class="form-control">
+        <span asp-validation-for="PetType"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Color">Pet Color:</label>
+        <input asp-for="Color" class="form-control">
+        <span asp-validation-for="Color"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LizardId">Pet Owner:</label>
+        <select asp-for="LizardId">
+            @foreach(var l in ViewBag.Lizards)
+            {
+                <option value="@l.LizardId">@l.Name</option>
+            }
+        </select>
+    </div>
+
+    <input type="submit" value="Create Pet" class="btn btn-primary">
+
+</form>
